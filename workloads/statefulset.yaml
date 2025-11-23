@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: test-sts
+  labels:
+    app: test-sts
+spec:
+  serviceName: "test-sts"
+  replicas: 2
+  selector:
+    matchLabels:
+      app: test-sts
+  template:
+    metadata:
+      labels:
+        app: test-sts
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
